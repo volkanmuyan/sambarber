@@ -70,7 +70,7 @@ const i18n = {
     'contact.title': 'Contact',
     'contact.address': 'Address',
     'contact.hours': 'Hours',
-    'contact.hoursDetail': 'Mon–Fri: 09:00–19:00<br>Sat: 09:00–17:00<br>Sun: Closed',
+    'contact.hoursDetail': 'Tue–Sun: 09:00–20:00<br>Monday: Closed',
     'contact.phone': 'Phone',
 
     'footer.tagline': 'Crafting confidence, one cut at a time.',
@@ -145,7 +145,7 @@ const i18n = {
     'contact.title': 'Contact',
     'contact.address': 'Adresse',
     'contact.hours': 'Horaires',
-    'contact.hoursDetail': 'Lun–Ven : 09h00–19h00<br>Sam : 09h00–17h00<br>Dim : Fermé',
+    'contact.hoursDetail': 'Mar–Dim : 09h00–20h00<br>Lundi : Fermé',
     'contact.phone': 'Téléphone',
 
     'footer.tagline': 'Forger la confiance, une coupe à la fois.',
@@ -271,9 +271,9 @@ dateInput.min = `${yyyy}-${mm}-${dd}`;
 
 dateInput.addEventListener('change', () => {
   const d = new Date(dateInput.value);
-  if (d.getDay() === 0) { // Sunday
+  if (d.getDay() === 1) { // Monday
     dateInput.value = '';
-    const msg = currentLang === 'fr' ? 'Fermé le dimanche. Choisissez un autre jour.' : 'Closed on Sundays. Please choose another day.';
+    const msg = currentLang === 'fr' ? 'Fermé le lundi. Veuillez choisir un autre jour.' : 'Closed on Mondays. Please choose another day.';
     alert(msg);
   }
 });

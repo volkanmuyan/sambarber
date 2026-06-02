@@ -24,7 +24,7 @@
     <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
       <span class="lang-option" data-lang="en">EN</span>
       <span class="lang-divider">/</span>
-      <span class="lang-option" data-lang="fr">FR</span>
+      <span class="lang-option" data-lang="nl">NL</span>
     </button>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -74,52 +74,28 @@
       </div>
       <div class="services-grid">
         <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 0l9.5 9.5M6 9l2-2M6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 0l9.5-9.5M17.5 4.5l-9 9"/></svg>
-          </div>
           <h3 data-i18n="services.cut.name">Classic Cut</h3>
           <p data-i18n="services.cut.desc">Precision scissor or clipper cut tailored to your style.</p>
-          <span class="service-price">€25</span>
         </div>
         <div class="service-card reveal delay-1">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 10h16M4 14h10"/><rect x="14" y="12" width="6" height="8" rx="1"/><path d="M16 12V8a2 2 0 0 1 4 0v4"/></svg>
-          </div>
           <h3 data-i18n="services.shave.name">Hot Towel Shave</h3>
           <p data-i18n="services.shave.desc">Traditional straight razor shave with hot towels and premium oils.</p>
-          <span class="service-price">€30</span>
         </div>
         <div class="service-card reveal delay-2">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/><path d="M3 11h3M18 11h3"/></svg>
-          </div>
           <h3 data-i18n="services.combo.name">Cut & Shave</h3>
           <p data-i18n="services.combo.desc">The full experience — cut, beard trim, and hot towel finish.</p>
-          <span class="service-price">€50</span>
         </div>
         <div class="service-card reveal delay-3">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7c0 5-4 9-8 9s-8-4-8-9a8 8 0 0 1 16 0z"/><path d="M12 16v6M9 19h6"/></svg>
-          </div>
           <h3 data-i18n="services.beard.name">Beard Sculpt</h3>
           <p data-i18n="services.beard.desc">Shape and define your beard with expert liner work.</p>
-          <span class="service-price">€20</span>
         </div>
         <div class="service-card reveal delay-1">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          </div>
           <h3 data-i18n="services.kids.name">Kids Cut</h3>
           <p data-i18n="services.kids.desc">Patient and precise cuts for boys under 12.</p>
-          <span class="service-price">€15</span>
         </div>
         <div class="service-card reveal delay-2">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
           <h3 data-i18n="services.vip.name">VIP Package</h3>
           <p data-i18n="services.vip.desc">Cut, shave, scalp massage, and a signature cocktail.</p>
-          <span class="service-price">€75</span>
         </div>
       </div>
     </div>
@@ -131,7 +107,12 @@
       <div class="about-image-wrap reveal">
         <div class="about-image">
           <div class="about-photo">
-            <div class="about-photo-bg" style="background-image:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80')"></div>
+            <img
+              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+              alt="Sam the Barber"
+              class="about-fill-img"
+              onerror="this.src='herohoto.jpg'"
+            />
           </div>
           <div class="about-badge">
             <span class="badge-number">15+</span>
@@ -162,27 +143,27 @@
       </div>
       <div class="gallery-grid">
         <div class="gallery-item reveal" style="--delay:0s">
-          <div class="gallery-bg" style="background-image:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80')"></div>
+          <div class="gallery-bg"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Precision Fade" onerror="this.src='herohoto.jpg'" /></div>
           <div class="gallery-overlay"><span data-i18n="gallery.fade">Precision Fade</span></div>
         </div>
         <div class="gallery-item reveal" style="--delay:0.1s">
-          <div class="gallery-bg" style="background-image:url('https://images.unsplash.com/photo-1621605815971-1bba7d0a4c40?auto=format&fit=crop&w=800&q=80')"></div>
+          <div class="gallery-bg"><img src="https://images.unsplash.com/photo-1621605815971-1bba7d0a4c40?auto=format&fit=crop&w=800&q=80" alt="Beard Sculpt" onerror="this.src='herohoto.jpg'" /></div>
           <div class="gallery-overlay"><span data-i18n="gallery.beard">Beard Sculpt</span></div>
         </div>
         <div class="gallery-item reveal" style="--delay:0.2s">
-          <div class="gallery-bg" style="background-image:url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80')"></div>
+          <div class="gallery-bg"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80" alt="Classic Cut" onerror="this.src='herohoto.jpg'" /></div>
           <div class="gallery-overlay"><span data-i18n="gallery.classic">Classic Cut</span></div>
         </div>
         <div class="gallery-item reveal" style="--delay:0.15s">
-          <div class="gallery-bg" style="background-image:url('https://images.unsplash.com/photo-1570174006717-73bd7c5dbc54?auto=format&fit=crop&w=800&q=80')"></div>
+          <div class="gallery-bg"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80" alt="Hot Shave" onerror="this.src='herohoto.jpg'" /></div>
           <div class="gallery-overlay"><span data-i18n="gallery.shave">Hot Shave</span></div>
         </div>
         <div class="gallery-item reveal" style="--delay:0.25s">
-          <div class="gallery-bg" style="background-image:url('https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=800&q=80')"></div>
+          <div class="gallery-bg"><img src="https://images.unsplash.com/photo-1519735777090-ec97162dc266?auto=format&fit=crop&w=800&q=80" alt="Textured Top" onerror="this.src='herohoto.jpg'" /></div>
           <div class="gallery-overlay"><span data-i18n="gallery.texture">Textured Top</span></div>
         </div>
         <div class="gallery-item reveal" style="--delay:0.05s">
-          <div class="gallery-bg" style="background-image:url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80')"></div>
+          <div class="gallery-bg"><img src="https://images.unsplash.com/photo-1622286342621-4bd3a3f36461?auto=format&fit=crop&w=800&q=80" alt="Line Up" onerror="this.src='herohoto.jpg'" /></div>
           <div class="gallery-overlay"><span data-i18n="gallery.line">Line Up</span></div>
         </div>
       </div>

@@ -77,79 +77,79 @@ const i18n = {
     'footer.rights': 'All rights reserved.',
   },
 
-  fr: {
-    'nav.services': 'Services',
-    'nav.about': 'À propos',
-    'nav.gallery': 'Galerie',
-    'nav.booking': 'Réserver',
+  nl: {
+    'nav.services': 'Diensten',
+    'nav.about': 'Over ons',
+    'nav.gallery': 'Galerij',
+    'nav.booking': 'Boeken',
     'nav.contact': 'Contact',
 
-    'hero.eyebrow': 'Fondé en 2010 · Bruxelles',
-    'hero.line1': "L'Art de",
-    'hero.line2': 'La Coupe.',
-    'hero.sub': 'Soin premium. Style intemporel. Chaque détail compte.',
-    'hero.cta': 'Réserver une séance',
-    'hero.cta2': 'Nos services',
+    'hero.eyebrow': 'Est. 2010 · Aalst',
+    'hero.line1': 'De Kunst van',
+    'hero.line2': 'De Knip.',
+    'hero.sub': 'Premium verzorging. Tijdloze stijl. Elk detail telt.',
+    'hero.cta': 'Maak een afspraak',
+    'hero.cta2': 'Onze diensten',
 
-    'services.eyebrow': 'Ce que nous proposons',
-    'services.title': 'Nos Services',
-    'services.cut.name': 'Coupe classique',
-    'services.cut.desc': 'Coupe aux ciseaux ou à la tondeuse adaptée à votre style.',
-    'services.shave.name': 'Rasage serviette chaude',
-    'services.shave.desc': 'Rasage au rasoir droit avec serviettes chaudes et huiles premium.',
-    'services.combo.name': 'Coupe & Rasage',
-    'services.combo.desc': 'L\'expérience complète — coupe, taille de barbe et finition serviette chaude.',
-    'services.beard.name': 'Sculpture de barbe',
-    'services.beard.desc': 'Formez et définissez votre barbe avec un tracé expert.',
-    'services.kids.name': 'Coupe enfant',
-    'services.kids.desc': 'Coupes patientes et précises pour les garçons de moins de 12 ans.',
-    'services.vip.name': 'Forfait VIP',
-    'services.vip.desc': 'Coupe, rasage, massage du cuir chevelu et cocktail signature.',
+    'services.eyebrow': 'Wat we aanbieden',
+    'services.title': 'Onze Diensten',
+    'services.cut.name': 'Klassieke Knip',
+    'services.cut.desc': 'Precieze knip met schaar of tondeuse, afgestemd op uw stijl.',
+    'services.shave.name': 'Warme Handdoek Scheerbeurt',
+    'services.shave.desc': 'Traditioneel scheren met rechte scheermest, warme handdoeken en premium oliën.',
+    'services.combo.name': 'Knip & Scheerbeurt',
+    'services.combo.desc': 'De volledige ervaring — knip, baardtrim en warme handdoek afwerking.',
+    'services.beard.name': 'Baard Sculptuur',
+    'services.beard.desc': 'Vorm en definieer uw baard met deskundige contourafwerking.',
+    'services.kids.name': 'Kinderknip',
+    'services.kids.desc': 'Geduldige en precieze knip voor jongens onder de 12 jaar.',
+    'services.vip.name': 'VIP Pakket',
+    'services.vip.desc': 'Knip, scheerbeurt, hoofdhuidmassage en een handtailcocktail.',
 
-    'about.eyebrow': 'Notre histoire',
-    'about.title': 'Derrière le fauteuil',
-    'about.badge': 'Ans d\'expérience',
-    'about.p1': 'Sam a commencé à couper les cheveux à 19 ans dans les ruelles de Molenbeek. Ce qui a débuté comme une passion est devenu un art, et un art est devenu une vocation. Aujourd\'hui, Sambarber est la destination de soin la plus reconnue de Bruxelles.',
-    'about.p2': 'Chaque client est accueilli avec respect, soin et une tasse de café. Pas de précipitation, pas de compromis. Juste la coupe parfaite, à chaque fois.',
-    'about.cta': 'Réservez votre place',
+    'about.eyebrow': 'Ons Verhaal',
+    'about.title': 'Achter de Stoel',
+    'about.badge': 'Jaar Ervaring',
+    'about.p1': 'Sam begon op zijn 19e haar te knippen in de steegjes van Molenbeek. Wat begon als een passie werd een vak — en een vak werd een roeping. Vandaag is Sambarber de meest vertrouwde kapperszaak van Aalst.',
+    'about.p2': 'Elke klant wordt verwelkomd met respect, zorg en een kopje koffie. Geen haast, geen compromissen. Gewoon de perfecte knip, elke keer.',
+    'about.cta': 'Reserveer uw plek',
 
-    'gallery.eyebrow': 'Le travail',
-    'gallery.title': 'Galerie',
-    'gallery.fade': 'Dégradé précis',
-    'gallery.beard': 'Sculpture barbe',
-    'gallery.classic': 'Coupe classique',
-    'gallery.shave': 'Rasage chaud',
-    'gallery.texture': 'Effet texturé',
-    'gallery.line': 'Tracé net',
+    'gallery.eyebrow': 'Het Werk',
+    'gallery.title': 'Galerij',
+    'gallery.fade': 'Precieze Fade',
+    'gallery.beard': 'Baard Sculptuur',
+    'gallery.classic': 'Klassieke Knip',
+    'gallery.shave': 'Warme Scheerbeurt',
+    'gallery.texture': 'Getextureerde Top',
+    'gallery.line': 'Contourlijn',
 
-    'booking.eyebrow': 'Réservez votre créneau',
-    'booking.title': 'Prendre rendez-vous',
-    'booking.name': 'Nom complet',
-    'booking.nameErr': 'Veuillez entrer votre nom',
-    'booking.phone': 'Numéro de téléphone',
-    'booking.phoneErr': 'Veuillez entrer votre téléphone',
-    'booking.service': 'Choisir un service',
-    'booking.selectService': '-- Sélectionner un service --',
-    'booking.serviceErr': 'Veuillez sélectionner un service',
-    'booking.date': 'Date',
-    'booking.dateErr': 'Veuillez choisir une date',
-    'booking.time': 'Créneau horaire',
-    'booking.timeErr': 'Veuillez choisir un horaire',
-    'booking.notes': 'Notes (optionnel)',
-    'booking.submit': 'Confirmer la réservation',
-    'booking.successTitle': 'Réservation confirmée !',
-    'booking.successMsg': 'Nous vous enverrons une confirmation sur votre téléphone. À bientôt.',
-    'booking.again': 'Nouvelle réservation',
+    'booking.eyebrow': 'Reserveer uw plek',
+    'booking.title': 'Maak een afspraak',
+    'booking.name': 'Volledige naam',
+    'booking.nameErr': 'Geef uw naam op',
+    'booking.phone': 'Telefoonnummer',
+    'booking.phoneErr': 'Geef uw telefoonnummer op',
+    'booking.service': 'Kies een dienst',
+    'booking.selectService': '-- Kies een dienst --',
+    'booking.serviceErr': 'Kies een dienst',
+    'booking.date': 'Datum',
+    'booking.dateErr': 'Kies een datum',
+    'booking.time': 'Tijdslot',
+    'booking.timeErr': 'Kies een tijdslot',
+    'booking.notes': 'Notities (optioneel)',
+    'booking.submit': 'Afspraak bevestigen',
+    'booking.successTitle': 'Afspraak bevestigd!',
+    'booking.successMsg': 'We sturen een bevestiging naar uw telefoon. Tot snel.',
+    'booking.again': 'Nieuwe afspraak',
 
-    'contact.eyebrow': 'Nous trouver',
+    'contact.eyebrow': 'Vind ons',
     'contact.title': 'Contact',
-    'contact.address': 'Adresse',
-    'contact.hours': 'Horaires',
-    'contact.hoursDetail': 'Mar–Dim : 09h00–20h00<br>Lundi : Fermé',
-    'contact.phone': 'Téléphone',
+    'contact.address': 'Adres',
+    'contact.hours': 'Openingstijden',
+    'contact.hoursDetail': 'Di–Zo: 09:00–20:00<br>Maandag: Gesloten',
+    'contact.phone': 'Telefoon',
 
-    'footer.tagline': 'Forger la confiance, une coupe à la fois.',
-    'footer.rights': 'Tous droits réservés.',
+    'footer.tagline': 'Vertrouwen creëren, één knip tegelijk.',
+    'footer.rights': 'Alle rechten voorbehouden.',
   }
 };
 
@@ -190,7 +190,7 @@ function applyLang(lang) {
 }
 
 document.getElementById('langToggle').addEventListener('click', () => {
-  applyLang(currentLang === 'en' ? 'fr' : 'en');
+  applyLang(currentLang === 'en' ? 'nl' : 'en');
 });
 
 /* ============================================================
@@ -273,7 +273,7 @@ dateInput.addEventListener('change', () => {
   const d = new Date(dateInput.value);
   if (d.getDay() === 1) { // Monday
     dateInput.value = '';
-    const msg = currentLang === 'fr' ? 'Fermé le lundi. Veuillez choisir un autre jour.' : 'Closed on Mondays. Please choose another day.';
+    const msg = currentLang === 'nl' ? 'Maandag gesloten. Kies een andere dag.' : 'Closed on Mondays. Please choose another day.';
     alert(msg);
   }
 });
@@ -341,5 +341,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 /* ============================================================
    INIT
    ============================================================ */
-const savedLang = localStorage.getItem('sambarber-lang') || 'en';
+const savedLang = localStorage.getItem('sambarber-lang') || 'nl';
 applyLang(savedLang);

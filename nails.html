@@ -235,10 +235,12 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
-/* Marble CSS background */
+/* Hero photo */
 .hero-marble {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  /* CSS marble shown when photo fails to load */
   background:
     radial-gradient(ellipse 140% 100% at 10% 35%, rgba(249,228,232,0.85) 0%, transparent 55%),
     radial-gradient(ellipse 80% 140% at 90% 10%, rgba(255,255,255,0.95) 0%, transparent 50%),
@@ -250,9 +252,26 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background-image:
     repeating-linear-gradient(-38deg, transparent 0, transparent 28px, rgba(212,175,140,0.07) 28px, rgba(212,175,140,0.07) 29px, transparent 29px, transparent 52px, rgba(201,160,168,0.05) 52px, rgba(201,160,168,0.05) 53px),
     repeating-linear-gradient(55deg, transparent 0, transparent 60px, rgba(249,228,232,0.12) 60px, rgba(249,228,232,0.12) 61px);
+  z-index: 1;
+}
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 0;
+  animation: heroZoom 14s ease-out forwards;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1.0); }
 }
 
 /* Sparkles */
@@ -278,12 +297,19 @@ ul { list-style: none; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 70%, var(--white) 100%);
+  z-index: 2;
+  background:
+    linear-gradient(to bottom,
+      rgba(255,255,255,0.42) 0%,
+      rgba(249,228,232,0.25) 40%,
+      rgba(255,255,255,0.6) 75%,
+      rgba(255,255,255,1) 100%
+    );
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   text-align: center;
   padding: 0 1.5rem;
   max-width: 760px;
@@ -801,8 +827,10 @@ ul { list-style: none; }
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-marble"></div>
-    <div class="sparkles" id="sparkles"></div>
+    <div class="hero-marble">
+      <img id="heroPhoto" class="hero-photo" alt="Nail art" />
+    </div>
+    <div class="sparkles" id="sparkles" style="z-index:3"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Savoyestraat 3 · Leuven</p>
@@ -1129,6 +1157,26 @@ ul { list-style: none; }
   </footer>
 
   <script>
+/* ============================================================
+   HERO PHOTO — try multiple sources, CSS marble is fallback
+   ============================================================ */
+(function() {
+  const img = document.getElementById('heroPhoto');
+  const urls = [
+    'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1920&q=90',
+    'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=1920&q=90',
+    'https://images.unsplash.com/photo-1604770580893-1ba0b5df7eae?auto=format&fit=crop&w=1920&q=90',
+    'https://images.unsplash.com/photo-1574621100-2afee5a0a2ca?auto=format&fit=crop&w=1920&q=90',
+  ];
+  let i = 0;
+  img.onerror = function() {
+    i++;
+    if (i < urls.length) { img.src = urls[i]; }
+    else { img.style.display = 'none'; } /* show CSS marble */
+  };
+  img.src = urls[0];
+})();
+
 /* ============================================================
    SPARKLES
    ============================================================ */

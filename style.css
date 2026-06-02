@@ -154,6 +154,19 @@ ul { list-style: none; }
 .nav-links a:hover { color: var(--off-white); }
 .nav-links a:hover::after { width: 100%; }
 
+.nav-nails-link {
+  border: 1px solid rgba(201, 168, 76, 0.35) !important;
+  padding: 0.3rem 0.85rem !important;
+  border-radius: 100px !important;
+  color: var(--gold) !important;
+  font-size: 0.75rem !important;
+}
+.nav-nails-link:hover {
+  background: rgba(201, 168, 76, 0.1) !important;
+  border-color: var(--gold) !important;
+}
+.nav-nails-link::after { display: none !important; }
+
 .lang-toggle {
   display: flex;
   align-items: center;

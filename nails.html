@@ -400,6 +400,47 @@ ul { list-style: none; }
 }
 
 /* ============================================================
+   FLOATING NAIL ART DECORATIONS
+   ============================================================ */
+.nail-float {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 14px 50px rgba(201,160,168,0.28);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  transition-delay: var(--fd, 0s);
+}
+.nail-float.in { opacity: 1; }
+.nail-float img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Sizes */
+.nf-sm { width: 130px; height: 165px; }
+.nf-md { width: 160px; height: 205px; }
+.nf-lg { width: 185px; height: 240px; }
+
+/* Left side – slide in from left */
+.nf-l { transform: rotate(var(--rot, -9deg)) translateX(-35px); }
+.nf-l.in { transform: rotate(var(--rot, -9deg)) translateX(0); }
+
+/* Right side – slide in from right */
+.nf-r { transform: rotate(var(--rot, 8deg)) translateX(35px); }
+.nf-r.in { transform: rotate(var(--rot, 8deg)) translateX(0); }
+
+/* Positions (% of section) */
+.nf-p1  { left: 1.5%; top: 8%;  }
+.nf-p2  { left: 2.5%; top: 55%; }
+.nf-p3  { left: 1%;   top: 30%; }
+.nf-p4  { right: 1.5%; top: 15%; }
+.nf-p5  { right: 2%;  top: 58%; }
+.nf-p6  { right: 1%;  top: 35%; }
+
+/* Hide below 1300px – would overlap content */
+@media (max-width: 1300px) { .nail-float { display: none !important; } }
+
+/* ============================================================
    PRICE LIST
    ============================================================ */
 .price-grid {
@@ -857,7 +898,24 @@ ul { list-style: none; }
   </section>
 
   <!-- PRICE LIST -->
-  <section class="section" id="prices">
+  <section class="section" id="prices" style="position:relative;overflow:visible">
+
+    <!-- Floating nail art — left side -->
+    <div class="nail-float nf-md nf-l nf-p1" style="--rot:-10deg;--fd:0.1s">
+      <img src="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?cs=tinysrgb&w=400" alt="" onerror="this.closest('.nail-float').style.display='none'" />
+    </div>
+    <div class="nail-float nf-sm nf-l nf-p2" style="--rot:-6deg;--fd:0.3s">
+      <img src="https://images.pexels.com/photos/939836/pexels-photo-939836.jpeg?cs=tinysrgb&w=400" alt="" onerror="this.closest('.nail-float').style.display='none'" />
+    </div>
+
+    <!-- Floating nail art — right side -->
+    <div class="nail-float nf-lg nf-r nf-p4" style="--rot:9deg;--fd:0.15s">
+      <img src="https://images.pexels.com/photos/1244635/pexels-photo-1244635.jpeg?cs=tinysrgb&w=400" alt="" onerror="this.closest('.nail-float').style.display='none'" />
+    </div>
+    <div class="nail-float nf-md nf-r nf-p5" style="--rot:5deg;--fd:0.35s">
+      <img src="https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?cs=tinysrgb&w=400" alt="" onerror="this.closest('.nail-float').style.display='none'" />
+    </div>
+
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Onze diensten</p>
@@ -1010,7 +1068,13 @@ ul { list-style: none; }
   </section>
 
   <!-- LOYALTY -->
-  <div class="loyalty-section">
+  <div class="loyalty-section" style="position:relative;overflow:visible">
+    <div class="nail-float nf-sm nf-l nf-p3" style="--rot:-12deg;--fd:0.1s">
+      <img src="https://images.pexels.com/photos/3997388/pexels-photo-3997388.jpeg?cs=tinysrgb&w=400" alt="" onerror="this.closest('.nail-float').style.display='none'" />
+    </div>
+    <div class="nail-float nf-md nf-r nf-p6" style="--rot:11deg;--fd:0.2s">
+      <img src="https://images.pexels.com/photos/5632403/pexels-photo-5632403.jpeg?cs=tinysrgb&w=400" alt="" onerror="this.closest('.nail-float').style.display='none'" />
+    </div>
     <div class="container">
       <div class="loyalty-inner">
         <div class="loyalty-card reveal">
@@ -1033,7 +1097,13 @@ ul { list-style: none; }
   </div>
 
   <!-- BOOKING -->
-  <section class="section" id="booking">
+  <section class="section" id="booking" style="position:relative;overflow:visible">
+    <div class="nail-float nf-lg nf-l nf-p1" style="--rot:-7deg;--fd:0.1s">
+      <img src="https://images.pexels.com/photos/3997390/pexels-photo-3997390.jpeg?cs=tinysrgb&w=400" alt="" onerror="this.closest('.nail-float').style.display='none'" />
+    </div>
+    <div class="nail-float nf-sm nf-r nf-p4" style="--rot:13deg;--fd:0.25s">
+      <img src="https://images.pexels.com/photos/6930864/pexels-photo-6930864.jpeg?cs=tinysrgb&w=400" alt="" onerror="this.closest('.nail-float').style.display='none'" />
+    </div>
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Uw tijdslot</p>
@@ -1174,13 +1244,13 @@ ul { list-style: none; }
 (function() {
   const img = document.getElementById('heroPhoto');
   const urls = [
+    'https://images.pexels.com/photos/5632403/pexels-photo-5632403.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    'https://images.pexels.com/photos/6930864/pexels-photo-6930864.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    'https://images.pexels.com/photos/3997390/pexels-photo-3997390.jpeg?auto=compress&cs=tinysrgb&w=1920',
     'https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    'https://images.pexels.com/photos/1244635/pexels-photo-1244635.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    'https://images.pexels.com/photos/3997388/pexels-photo-3997388.jpeg?auto=compress&cs=tinysrgb&w=1920',
     'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    'https://images.pexels.com/photos/1244635/pexels-photo-1244635.jpeg?auto=compress&cs=tinysrgb&w=1920',
     'https://images.pexels.com/photos/939836/pexels-photo-939836.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1920&q=90',
-    'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=1920&q=90',
   ];
   let i = 0;
   img.onerror = function() {
@@ -1255,12 +1325,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 /* ============================================================
-   SCROLL REVEAL
+   SCROLL REVEAL (reveal + nail-float)
    ============================================================ */
 const ro = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .nail-float').forEach(el => ro.observe(el));
 
 /* ============================================================
    TIME SLOTS

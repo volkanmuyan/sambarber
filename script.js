@@ -669,8 +669,12 @@ document.querySelectorAll('.service-acc-trigger').forEach(trigger => {
     cursor.style.opacity = '1';
   }, { passive: true });
 
-  document.addEventListener('mousedown', () => cursor.classList.add('snip'));
-  document.addEventListener('mouseup',   () => cursor.classList.remove('snip'));
+  document.addEventListener('mousedown', () => {
+    cursor.classList.remove('snip');
+    void cursor.offsetWidth; // force reflow → animation restarts every click
+    cursor.classList.add('snip');
+  });
+  document.addEventListener('mouseup', () => cursor.classList.remove('snip'));
   document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
   document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
 

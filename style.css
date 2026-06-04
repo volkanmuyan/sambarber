@@ -1905,12 +1905,40 @@ body.has-custom-cursor * {
 }
 
 #cursor.snip svg {
-  transform: rotate(-40deg) scaleY(0.68);
   filter: drop-shadow(0 1px 12px rgba(201, 168, 76, 0.7));
 }
 
 #cursor.hover svg {
   transform: rotate(-40deg) scale(1.15);
   filter: drop-shadow(0 1px 10px rgba(201, 168, 76, 0.6));
+}
+
+.blade-top, .blade-bottom {
+  transform-box: view-box;
+  transform-origin: 10px 12px;
+}
+
+@keyframes blade-snip-top {
+  0%   { transform: rotate(0deg); }
+  18%  { transform: rotate(10deg); }
+  52%  { transform: rotate(-14deg); }
+  78%  { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes blade-snip-bottom {
+  0%   { transform: rotate(0deg); }
+  18%  { transform: rotate(-10deg); }
+  52%  { transform: rotate(14deg); }
+  78%  { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+#cursor.snip .blade-top {
+  animation: blade-snip-top 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+#cursor.snip .blade-bottom {
+  animation: blade-snip-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 

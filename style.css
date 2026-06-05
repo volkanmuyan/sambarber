@@ -1905,7 +1905,7 @@ body.has-custom-cursor * {
   width: 38px;
   height: 38px;
   display: block;
-  transform: rotate(-40deg);
+  transform: rotate(-40deg) scaleX(-1);
   filter: drop-shadow(0 1px 6px rgba(201, 168, 76, 0.45));
   transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), filter 0.18s;
 }
@@ -1915,7 +1915,7 @@ body.has-custom-cursor * {
 }
 
 #cursor.hover svg {
-  transform: rotate(-40deg) scale(1.15);
+  transform: rotate(-40deg) scaleX(-1) scale(1.15);
   filter: drop-shadow(0 1px 10px rgba(201, 168, 76, 0.6));
 }
 
@@ -1926,25 +1926,25 @@ body.has-custom-cursor * {
 
 @keyframes blade-snip-top {
   0%   { transform: rotate(0deg); }
-  18%  { transform: rotate(10deg); }
-  52%  { transform: rotate(-14deg); }
-  78%  { transform: rotate(-3deg); }
+  25%  { transform: rotate(-10deg); }
+  62%  { transform: rotate(14deg); }
+  82%  { transform: rotate(5deg); }
   100% { transform: rotate(0deg); }
 }
 
 @keyframes blade-snip-bottom {
   0%   { transform: rotate(0deg); }
-  18%  { transform: rotate(-10deg); }
-  52%  { transform: rotate(14deg); }
-  78%  { transform: rotate(3deg); }
+  25%  { transform: rotate(10deg); }
+  62%  { transform: rotate(-14deg); }
+  82%  { transform: rotate(-5deg); }
   100% { transform: rotate(0deg); }
 }
 
 #cursor.snip .blade-top {
-  animation: blade-snip-top 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: blade-snip-top 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 #cursor.snip .blade-bottom {
-  animation: blade-snip-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: blade-snip-bottom 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 

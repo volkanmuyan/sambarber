@@ -353,7 +353,9 @@
         void cursor.offsetWidth;
         cursor.classList.add('snip');
       });
-      document.addEventListener('mouseup', () => cursor.classList.remove('snip'));
+      cursor.querySelector('.blade-top').addEventListener('animationend', () => {
+        cursor.classList.remove('snip');
+      });
       document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
       document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
       document.querySelectorAll('a, button, input, .blog-card').forEach(el => {

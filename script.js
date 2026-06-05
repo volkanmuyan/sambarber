@@ -671,10 +671,13 @@ document.querySelectorAll('.service-acc-trigger').forEach(trigger => {
 
   document.addEventListener('mousedown', () => {
     cursor.classList.remove('snip');
-    void cursor.offsetWidth; // force reflow → animation restarts every click
+    void cursor.offsetWidth;
     cursor.classList.add('snip');
   });
-  document.addEventListener('mouseup', () => cursor.classList.remove('snip'));
+
+  cursor.querySelector('.blade-top').addEventListener('animationend', () => {
+    cursor.classList.remove('snip');
+  });
   document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
   document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
 

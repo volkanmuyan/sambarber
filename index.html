@@ -137,6 +137,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -596,6 +597,11 @@
             </div>
           </div>
           <div class="form-group">
+            <label for="email" data-i18n="booking.email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="sam@example.com" />
+            <span class="form-error" data-i18n="booking.emailErr">Please enter a valid email</span>
+          </div>
+          <div class="form-group">
             <label for="salon" data-i18n="booking.salon">Select Location</label>
             <select id="salon" name="salon" required>
               <option value="" data-i18n="booking.selectSalon">-- Choose a location --</option>
@@ -650,7 +656,7 @@
         <div class="booking-success" id="bookingSuccess">
           <div class="success-icon">✓</div>
           <h3 data-i18n="booking.successTitle">Booking Confirmed!</h3>
-          <p data-i18n="booking.successMsg">We'll send a confirmation to your phone. See you soon.</p>
+          <p data-i18n="booking.successMsg">A confirmation has been sent to your email. See you soon!</p>
           <button class="btn btn-ghost" id="bookAgain" data-i18n="booking.again">Book Another</button>
         </div>
       </div>

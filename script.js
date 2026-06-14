@@ -1,4 +1,14 @@
 /* ============================================================
+   EMAILJS CONFIGURATION
+   Signup at https://www.emailjs.com and replace these values.
+   ============================================================ */
+const EMAILJS_PUBLIC_KEY        = 'xuZOhDCGo8Jfx8izu';
+const EMAILJS_SERVICE_ID        = 'service_hqsfqvx';
+const EMAILJS_OWNER_TEMPLATE    = 'template_3gmjvi2';
+const EMAILJS_CUSTOMER_TEMPLATE = 'template_7zevzbn';
+const OWNER_EMAIL               = 'sam.barber3000@gmail.com';
+
+/* ============================================================
    TRANSLATIONS
    ============================================================ */
 const i18n = {
@@ -57,6 +67,8 @@ const i18n = {
     'booking.nameErr': 'Please enter your name',
     'booking.phone': 'Phone Number',
     'booking.phoneErr': 'Please enter your phone',
+    'booking.email': 'Email Address',
+    'booking.emailErr': 'Please enter a valid email',
     'booking.service': 'Select Service',
     'booking.selectService': '-- Choose a service --',
     'booking.serviceErr': 'Please select a service',
@@ -67,7 +79,9 @@ const i18n = {
     'booking.notes': 'Notes (optional)',
     'booking.submit': 'Confirm Booking',
     'booking.successTitle': 'Booking Confirmed!',
-    'booking.successMsg': 'We\'ll send a confirmation to your phone. See you soon.',
+    'booking.successMsg': 'A confirmation has been sent to your email. See you soon!',
+    'booking.sendingMsg': 'Sending…',
+    'booking.errorMsg': 'Something went wrong. Please call us or try again.',
     'booking.again': 'Book Another',
 
     'contact.eyebrow': 'Find Us',
@@ -175,6 +189,8 @@ const i18n = {
     'booking.nameErr': 'Geef uw naam op',
     'booking.phone': 'Telefoonnummer',
     'booking.phoneErr': 'Geef uw telefoonnummer op',
+    'booking.email': 'E-mailadres',
+    'booking.emailErr': 'Geef een geldig e-mailadres op',
     'booking.service': 'Kies een dienst',
     'booking.selectService': '-- Kies een dienst --',
     'booking.serviceErr': 'Kies een dienst',
@@ -185,7 +201,9 @@ const i18n = {
     'booking.notes': 'Notities (optioneel)',
     'booking.submit': 'Afspraak bevestigen',
     'booking.successTitle': 'Afspraak bevestigd!',
-    'booking.successMsg': 'We sturen een bevestiging naar uw telefoon. Tot snel.',
+    'booking.successMsg': 'Een bevestiging is verstuurd naar uw e-mail. Tot snel!',
+    'booking.sendingMsg': 'Bezig met verzenden…',
+    'booking.errorMsg': 'Er is iets misgegaan. Bel ons of probeer opnieuw.',
     'booking.again': 'Nieuwe afspraak',
 
     'contact.eyebrow': 'Vind ons',
@@ -372,25 +390,67 @@ function validateField(id, condition) {
   return valid;
 }
 
-bookingForm.addEventListener('submit', e => {
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+bookingForm.addEventListener('submit', async e => {
   e.preventDefault();
 
-  const nameOk = validateField('fname', el => el.value.trim().length > 1);
-  const phoneOk = validateField('phone', el => el.value.trim().length > 5);
-  const salonOk = validateField('salon', el => el.value !== '');
+  const nameOk    = validateField('fname',   el => el.value.trim().length > 1);
+  const phoneOk   = validateField('phone',   el => el.value.trim().length > 5);
+  const emailOk   = validateField('email',   el => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
+  const salonOk   = validateField('salon',   el => el.value !== '');
   const serviceOk = validateField('service', el => el.value !== '');
-  const dateOk = validateField('bdate', el => el.value !== '');
+  const dateOk    = validateField('bdate',   el => el.value !== '');
 
   const timeGroup = document.getElementById('timeSlots').closest('.form-group');
   const timeOk = selectedTimeInput.value !== '';
   timeGroup.classList.toggle('has-error', !timeOk);
 
-  if (!(nameOk && phoneOk && salonOk && serviceOk && dateOk && timeOk)) return;
+  if (!(nameOk && phoneOk && emailOk && salonOk && serviceOk && dateOk && timeOk)) return;
 
-  // Success
-  bookingForm.style.display = 'none';
-  bookingSuccess.classList.add('visible');
-  bookingSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const submitBtn = bookingForm.querySelector('[type="submit"]');
+  const lang = document.documentElement.lang || 'en';
+  const t = key => (i18n[lang] || i18n.en)[key] || key;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = t('booking.sendingMsg');
+
+  const salonEl   = document.getElementById('salon');
+  const serviceEl = document.getElementById('service');
+  const params = {
+    customer_name:  document.getElementById('fname').value.trim(),
+    customer_phone: document.getElementById('phone').value.trim(),
+    customer_email: document.getElementById('email').value.trim(),
+    salon:          salonEl.options[salonEl.selectedIndex].text,
+    service:        serviceEl.options[serviceEl.selectedIndex].text,
+    date:           document.getElementById('bdate').value,
+    time:           selectedTimeInput.value,
+    notes:          document.getElementById('notes').value.trim() || '—',
+    owner_email:    OWNER_EMAIL,
+    to_email:       document.getElementById('email').value.trim(),
+  };
+
+  try {
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_OWNER_TEMPLATE, params);
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CUSTOMER_TEMPLATE, params);
+
+    bookingForm.style.display = 'none';
+    bookingSuccess.classList.add('visible');
+    bookingSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (err) {
+    console.error('EmailJS error:', err);
+    submitBtn.disabled = false;
+    submitBtn.textContent = t('booking.submit');
+
+    const errEl = bookingForm.querySelector('.booking-send-error') || (() => {
+      const el = document.createElement('p');
+      el.className = 'booking-send-error';
+      submitBtn.insertAdjacentElement('afterend', el);
+      return el;
+    })();
+    errEl.textContent = t('booking.errorMsg');
+    errEl.style.cssText = 'color:#e55;font-size:.85rem;margin-top:.5rem;text-align:center;';
+  }
 });
 
 bookAgain.addEventListener('click', () => {
@@ -398,6 +458,12 @@ bookAgain.addEventListener('click', () => {
   timeSlots.forEach(s => s.classList.remove('selected'));
   selectedTimeInput.value = '';
   document.querySelectorAll('.form-group.has-error').forEach(g => g.classList.remove('has-error'));
+  const errEl = bookingForm.querySelector('.booking-send-error');
+  if (errEl) errEl.remove();
+  const submitBtn = bookingForm.querySelector('[type="submit"]');
+  submitBtn.disabled = false;
+  const lang = document.documentElement.lang || 'en';
+  submitBtn.textContent = (i18n[lang] || i18n.en)['booking.submit'];
   bookingForm.style.display = '';
   bookingSuccess.classList.remove('visible');
 });
